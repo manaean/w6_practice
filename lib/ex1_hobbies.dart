@@ -11,7 +11,7 @@ void main() {
       home: Scaffold(
         appBar: AppBar(title: const Text('My Hobbies')),
         body: Container(
-          color: Colors.grey, 
+          color: Colors.grey,
           child: Padding(
             padding: const EdgeInsets.all(40),
             child: Column(
@@ -21,15 +21,16 @@ void main() {
                   height: 90,
                   margin: const EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.orange,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Center(
                     child: Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left:30, right:20),
-                          child: Icon(Icons.travel_explore, color: Colors.white),
+                          padding: EdgeInsets.only(left: 30, right: 20),
+                          child:
+                              Icon(Icons.travel_explore, color: Colors.white),
                         ),
                         Text(
                           'Travelling',

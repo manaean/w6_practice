@@ -10,7 +10,34 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Container(), // YOUR CODE
+        appBar: AppBar (title: const Text('Products')),
+        body: Container(
+          color: Colors.blue,
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset('assets/ex3/dart.png',height: 60),
+                      const SizedBox(height: 10),
+                      const Text('Dart', style: TextStyle(fontSize: 24)),
+                      const SizedBox(height: 4),
+                      const Text(
+                        'the best object language',
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ), // YOUR CODE
       ),
     ),
   );

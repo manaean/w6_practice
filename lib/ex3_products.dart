@@ -4,7 +4,34 @@ import 'package:flutter/material.dart';
 // Part 1: build ONE product card (images are in assets/ex3/).
 // Part 2: create the Product enum (follow the UML in the handout).
 // Part 3: extract the card into a StatelessWidget called ProductCard.
+enum Product {
+  dart(
+    title: 'Dart',
+    description: 'the best object language',
+    image: 'assets/ex3/dart.png',
+  ),
+  flutter(
+    title: 'Flutter',
+    description: 'the best mobile widget library',
+    image: 'assets/ex3/flutter.png',
+  ),
+  firebase(
+    title: 'firebase',
+    description: 'the best cloud database',
+    image: 'assests/ex3/firebase.png',
+  );
 
+  const Product ({
+    required this.title,
+    required this.description,
+    required this.image,
+  });
+
+  final String title;
+  final String description;
+  final String image;
+
+}
 void main() {
   runApp(
     MaterialApp(
@@ -23,12 +50,12 @@ void main() {
                   child: Column (
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset('assets/ex3/dart.png',height: 60),
+                      Image.asset(Product.dart.image,height: 60),
                       const SizedBox(height: 10),
-                      const Text('Dart', style: TextStyle(fontSize: 24)),
+                      Text(Product.dart.title, style: TextStyle(fontSize: 24)),
                       const SizedBox(height: 4),
-                      const Text(
-                        'the best object language',
+                      Text(
+                        Product.dart.description,
                         style: TextStyle(fontSize: 10),
                       ),
                     ],

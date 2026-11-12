@@ -21,7 +21,7 @@ enum Product {
     image: 'assests/ex3/firebase.png',
   );
 
-  const Product ({
+  const Product({
     required this.title,
     required this.description,
     required this.image,
@@ -30,42 +30,55 @@ enum Product {
   final String title;
   final String description;
   final String image;
-
 }
+
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar (title: const Text('Products')),
+        appBar: AppBar(title: const Text('Products')),
         body: Container(
           color: Colors.blue,
           padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column (
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(Product.dart.image,height: 60),
-                      const SizedBox(height: 10),
-                      Text(Product.dart.title, style: TextStyle(fontSize: 24)),
-                      const SizedBox(height: 4),
-                      Text(
-                        Product.dart.description,
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                ProductCard(product: Product.dart),
+                ProductCard(product: Product.flutter),
+                ProductCard(product: Product.firebase),
             ],
           ),
         ), // YOUR CODE
       ),
     ),
   );
+}
+
+class ProductCard extends StatelessWidget {
+  const ProductCard({super.key, required this.product});
+
+  final Product product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(product.image, height: 60),
+            const SizedBox(height: 10),
+            Text(product.title, style: TextStyle(fontSize: 24)),
+            const SizedBox(height: 4),
+            Text(
+              product.description,
+              style: TextStyle(fontSize: 10),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

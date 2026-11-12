@@ -17,28 +17,22 @@ void main() {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  height: 90,
-                  margin: const EdgeInsets.only(bottom: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Center(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 30, right: 20),
-                          child:
-                              Icon(Icons.travel_explore, color: Colors.white),
-                        ),
-                        Text(
-                          'Travelling',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ],
-                    ),
-                  ),
+                HobbyCard(
+                  title: 'Travelling',
+                  icon: Icons.travel_explore,
+                  color: Colors.orange,
+                ),
+
+                HobbyCard(
+                  title: 'Skating',
+                  icon: Icons.ice_skating,
+                  color: Colors.green,
+                ),
+
+                HobbyCard(
+                  title: 'Hiking',
+                  icon: Icons.hiking_rounded,
+                  color: Colors.yellow,
                 ),
               ],
             ),
@@ -47,4 +41,43 @@ void main() {
       ),
     ),
   );
+}
+
+class HobbyCard extends StatelessWidget {
+  const HobbyCard({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.color = Colors.blue, 
+  });
+
+  final String title;
+  final IconData icon;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 90,
+      margin: const EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Center(
+        child: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 20),
+              child: Icon(icon, color: Colors.white),
+            ),
+            Text(
+              title,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
